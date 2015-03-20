@@ -1,0 +1,20 @@
+[21:25:35] [Server thread/INFO]: Starting minecraft server version 1.8.3
+[21:25:35] [Server thread/WARN]: To start the server with more ram, launch it as "java -Xmx1024M -Xms1024M -jar minecraft_server.jar"
+[21:25:35] [Server thread/INFO]: Loading properties
+[21:25:35] [Server thread/INFO]: Default game type: SURVIVAL
+[21:25:35] [Server thread/INFO]: Generating keypair
+[21:25:35] [Server thread/INFO]: Starting Minecraft server on *:25565
+[21:25:35] [Server thread/INFO]: Using default channel type
+[21:25:35] [Server thread/INFO]: Preparing level "world"
+[21:25:35] [Server thread/INFO]: Preparing start region for level 0
+[21:25:36] [Server thread/INFO]: Preparing spawn area: 24%
+[21:25:37] [Server thread/INFO]: Preparing spawn area: 72%
+[21:25:38] [Server thread/INFO]: Done (2.756s)! For help, type "help" or "?"
+[21:26:12] [User Authenticator #1/INFO]: UUID of player Vilgot is c10c7ee2-d9bc-46bb-bd91-ae941103a955
+[21:26:12] [Server thread/INFO]: Vilgot[/85.230.14.47:62736] logged in with entity id 152 at (424.99466276597985, 96.0, 539.5202157599871)
+[21:26:12] [Server thread/INFO]: Vilgot (formerly known as Vilgot2000) joined the game
+[21:26:16] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2009ms behind, skipping 40 tick(s)
+[21:26:39] [User Authenticator #2/INFO]: UUID of player Storsnoppen is c15bc5ef-c321-4602-a794-18374116ab12
+[21:26:39] [Server thread/INFO]: Storsnoppen[/213.66.254.162:63678] logged in with entity id 325 at (348.7202655884136, 71.0, 604.1323273022124)
+[21:26:39] [Server thread/INFO]: Storsnoppen (formerly known as mustafakatt) joined the game
+[21:26:47] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2560ms behind, skipping 51 tick(s)
