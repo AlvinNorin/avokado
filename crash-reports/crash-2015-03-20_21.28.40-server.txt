@@ -1,0 +1,218 @@
+---- Minecraft Crash Report ----
+// My bad.
+
+Time: 3/20/15 9:28 PM
+Description: Watching Server
+
+java.lang.Error
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:212)
+	at org.apache.commons.io.FileUtils.openOutputStream(FileUtils.java:367)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:1928)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:1962)
+	at mw.b(SourceFile:54)
+	at ly.b(SourceFile:252)
+	at ly.e(SourceFile:291)
+	at ln.a(SourceFile:598)
+	at el.l(SourceFile:370)
+	at lm.c(SourceFile:165)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:623)
+	at kp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:533)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:449)
+	at java.lang.Thread.run(Thread.java:701)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:212)
+	at org.apache.commons.io.FileUtils.openOutputStream(FileUtils.java:367)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:1928)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:1962)
+	at mw.b(SourceFile:54)
+	at ly.b(SourceFile:252)
+	at ly.e(SourceFile:291)
+	at ln.a(SourceFile:598)
+	at el.l(SourceFile:370)
+	at lm.c(SourceFile:165)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:623)
+	at kp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:533)
+
+-- Thread Dump --
+Details:
+	Threads: "Thread-1" Id=8 TIMED_WAITING on org.apache.logging.log4j.core.config.LoggerConfig@d2f3c0
+	at java.lang.Object.wait(Native Method)
+	-  waiting on org.apache.logging.log4j.core.config.LoggerConfig@d2f3c0
+	at org.apache.logging.log4j.core.config.LoggerConfig.waitForCompletion(LoggerConfig.java:382)
+	at org.apache.logging.log4j.core.config.LoggerConfig.clearAppenders(LoggerConfig.java:225)
+	at org.apache.logging.log4j.core.config.BaseConfiguration.stop(BaseConfiguration.java:164)
+	at org.apache.logging.log4j.core.LoggerContext.stop(LoggerContext.java:212)
+	at org.apache.logging.log4j.core.LoggerContext$ShutdownThread.run(LoggerContext.java:437)
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.locks.ReentrantLock$NonfairSync@aa557e
+
+
+"Server Shutdown Thread" Id=12 RUNNABLE (in native)
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:300)
+	at java.io.BufferedOutputStream.write(BufferedOutputStream.java:122)
+	-  locked java.io.BufferedOutputStream@180c2ac
+	at java.io.PrintStream.write(PrintStream.java:447)
+	-  locked java.io.PrintStream@6cb748
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:220)
+	at sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:290)
+	at sun.nio.cs.StreamEncoder.flushBuffer(StreamEncoder.java:103)
+	-  locked java.io.OutputStreamWriter@1750345
+	at java.io.OutputStreamWriter.flushBuffer(OutputStreamWriter.java:185)
+	...
+
+
+"SIGINT handler" Id=34 WAITING on net.minecraft.server.MinecraftServer$2@80dc07
+	at java.lang.Object.wait(Native Method)
+	-  waiting on net.minecraft.server.MinecraftServer$2@80dc07
+	at java.lang.Thread.join(Thread.java:1225)
+	at java.lang.Thread.join(Thread.java:1278)
+	at java.lang.ApplicationShutdownHooks.run(ApplicationShutdownHooks.java:97)
+	at java.lang.Shutdown.runHooks(Shutdown.java:106)
+	at java.lang.Shutdown.sequence(Shutdown.java:150)
+	at java.lang.Shutdown.exit(Shutdown.java:195)
+	-  locked java.lang.Class@129be53
+	at java.lang.Terminator$1.handle(Terminator.java:52)
+	...
+
+
+"File IO Thread" Id=27 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at aud.c(SourceFile:44)
+	at aud.run(SourceFile:30)
+	at java.lang.Thread.run(Thread.java:701)
+
+
+"Netty Server IO #1" Id=18 RUNNABLE (in native)
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:228)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:83)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:87)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@18e6aed
+	-  locked java.util.Collections$UnmodifiableSet@10e1e9d
+	-  locked sun.nio.ch.EPollSelectorImpl@1fc1695
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:98)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:622)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:310)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	...
+
+
+"Java2D Disposer" Id=21 WAITING on java.lang.ref.ReferenceQueue$Lock@12ecdbd
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@12ecdbd
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:133)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:149)
+	at sun.java2d.Disposer.run(Disposer.java:144)
+	at java.lang.Thread.run(Thread.java:701)
+
+
+"Server Watchdog" Id=20 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:392)
+	at kq.run(SourceFile:43)
+	at java.lang.Thread.run(Thread.java:701)
+
+
+"Netty Server IO #0" Id=17 BLOCKED on java.util.Collections$SynchronizedRandomAccessList@1c557cd owned by "Server thread" Id=11
+	at java.util.Collections$SynchronizedCollection.add(Collections.java:1593)
+	-  blocked on java.util.Collections$SynchronizedRandomAccessList@1c557cd
+	at lm$4.initChannel(SourceFile:105)
+	at io.netty.channel.ChannelInitializer.channelRegistered(ChannelInitializer.java:69)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRegistered(AbstractChannelHandlerContext.java:158)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRegistered(AbstractChannelHandlerContext.java:144)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRegistered(DefaultChannelPipeline.java:732)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:442)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register(AbstractChannel.java:412)
+	...
+
+
+"Server console handler" Id=14 RUNNABLE (in native)
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:239)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:273)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:334)
+	-  locked java.io.BufferedInputStream@1077dab
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:282)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:324)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:176)
+	-  locked java.io.InputStreamReader@cba08c
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	...
+
+
+"DestroyJavaVM" Id=13 RUNNABLE
+
+
+"Server thread" Id=11 RUNNABLE (in native)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:212)
+	at org.apache.commons.io.FileUtils.openOutputStream(FileUtils.java:367)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:1928)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:1962)
+	at mw.b(SourceFile:54)
+	at ly.b(SourceFile:252)
+	at ly.e(SourceFile:291)
+	...
+
+
+"Server Infinisleeper" Id=10 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at kp$1.run(SourceFile:65)
+
+
+"Snooper Timer" Id=9 TIMED_WAITING on java.util.TaskQueue@99812e
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@99812e
+	at java.util.TimerThread.mainLoop(Timer.java:531)
+	at java.util.TimerThread.run(Timer.java:484)
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@1f0183e
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@1f0183e
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:133)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:149)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:189)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@1c7ba86
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@1c7ba86
+	at java.lang.Object.wait(Object.java:502)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+
+
+
+Stacktrace:
+	at kq.run(SourceFile:59)
+	at java.lang.Thread.run(Thread.java:701)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.3
+	Operating System: Linux (i386) version 3.2.0-29-generic-pae
+	CPU: 1x Intel(R) Celeron(R) CPU 550 @ 2.00GHz
+	Java Version: 1.6.0_34, Sun Microsystems Inc.
+	Java VM Version: OpenJDK Client VM (mixed mode, sharing), Sun Microsystems Inc.
+	Memory: 106994904 bytes (102 MB) / 325636096 bytes (310 MB) up to 518979584 bytes (494 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 10; [lg['Vilgot'/152, l='world', x=423.17, y=84.00, z=553.07]]
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
