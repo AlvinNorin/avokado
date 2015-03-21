@@ -1,0 +1,6 @@
+[11:07:05] [Server thread/INFO]: Starting minecraft server version 1.8.3
+[11:07:05] [Server thread/WARN]: To start the server with more ram, launch it as "java -Xmx1024M -Xms1024M -jar minecraft_server.jar"
+[11:07:05] [Server thread/INFO]: Loading properties
+[11:07:06] [Server thread/INFO]: Default game type: SURVIVAL
+[11:07:06] [Server thread/INFO]: Generating keypair
+[11:07:06] [Server Shutdown Thread/INFO]: Stopping server
